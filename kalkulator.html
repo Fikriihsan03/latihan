@@ -1,41 +1,58 @@
 <!DOCTYPE html>
-<html lang="en" >
-  <head>
-    <meta charset="utf-8">
-    <title>kalkulator</title>
-    <style media="screen">
-    .wrap{
-      width:300px;
-      border:3px solid black;
-      background:rgb(85, 166, 201);
-        margin-left: 480px;
+<html lang="en">
 
-    }
-      input{
-        display: block;
-       justify-content: space-around;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrap">
-    USD<input id="rupiah" type="text" >
-      <input type="submit"  value="=" id="submit">
-    RP <input  id="dolar"type="text">
+<head>
+  <meta charset="utf-8">
+  <title>kalkulator</title>
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <style media="screen">
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+
+      <div class="card-body">
+        <div class='card-title'>
+          <h3>Exchange Rate Calculator</h3>
+          <small>USD 1 = Rp. 14754,25</small>
+        </div>
+        <form class="form-inline" autocomplete="off">
+          <div class="input-group">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text">USD</span>
+            </div>
+            <input type="text" class="form-control" id="inputUsd" placeholder="0,00">
+
+          </div>
+          <div class="mr-3 ml-3">=</div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Rp.</span>
+            </div>
+            <input type="text" class="form-control" id="resultRp" placeholder="0,00">
+
+          </div>
+        </form>
+
+      </div>
     </div>
-    <script>
-    var input=document.getElementById('rupiah');
-    var dolar=14754.25;
-    var hasil=document.getElementById('dolar');
-    var submit=document.getElementById('submit');
 
-   submit.onclick=function(){
-     var number=input.value*dolar;
-     hasil.value=number;
-   }
+  </div>
 
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script>
+    $(function () {
+      $("#inputUsd").keyup(function (e) {
+        var UsdValue = $(this).val();
+        $("#resultRp").val(UsdValue);
+      })
+    })
+  </script>
+</body>
 
-
-    </script>
-  </body>
-  </html>
+</html>
