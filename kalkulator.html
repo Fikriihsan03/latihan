@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>kalkulator</title>
+    <style media="screen">
+    .wrap{
+      width:300px;
+      border:3px solid black;
+      background:rgb(85, 166, 201);
+        margin-left: 480px;
+
+    }
+      input{
+        display: block;
+       justify-content: space-around;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+    USD<input id="rupiah" type="text" >
+      <input type="submit"  value="=" id="submit">
+    RP <input  id="dolar"type="text">
+    </div>
+    <script>
+    var input=document.getElementById('rupiah');
+    var dolar=14754.25;
+    var hasil=document.getElementById('dolar');
+    var submit=document.getElementById('submit');
+
+   submit.onclick=function(){
+     var number=input.value*dolar;
+     hasil.value=number;
+   }
+
+
+
+    </script>
+  </body>
+  </html>
