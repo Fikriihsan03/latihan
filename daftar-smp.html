@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Register</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+      <img class="navbar-brand" src="logo.png" width="350px" height="80px">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      
+      <div class="container">
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kalkulator.html">Kalkulator</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Register
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="daftar-smp.html">SMP</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  </nav>
+  <div class="container">
+    <div class="col-md-6">
+
+      <h5>Formulir pendaftaran SMP</h5>
+    </div>
+    <form onsubmit="validation()">
+      <div class="form-group col-md-6">
+        <label for="nama">Email</label>
+        <input type="email" id="email" class="form-control" placeholder=" ..." > 
+      </div>
+      
+      <div class="form-group col-md-6">
+        <label for="sonName">Nama peserta didik</label>
+        <input type="text" id="sonName" class="form-control" placeholder="...">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="schoolOrigin">Asal sekolah peserta didik</label>
+        <input type="text" id="schoolOrigin" class="form-control" placeholder="...">
+      </div>
+
+      <div class="form-row col-md-8 col-sm-12">
+        <div class="form-group col-md-4 col-sm-12">
+          <label for="dadName">Nama Ayah</label>
+          <input type="text" class="form-control" id="dadName" placeholder="...">
+        </div>
+        <div class="form-group col-md-4 col-sm-12">
+          <label for="dadName">Pekerjaan Ayah</label>
+          <input type="text" class="form-control" id="dadName" placeholder="...">
+        </div>
+        <div class="form-group col-md-4 col-sm-12">
+          <label for="dadName">Alamat Ayah</label>
+          <input type="text" class="form-control" id="dadName" placeholder="...">
+        </div>
+      </div>
+
+      <div class="form-row col-md-8 col-sm-12">
+        <div class="form-group col-md-4 col-sm-12">
+          <label for="momName">Nama ibu</label>
+          <input type="text" class="form-control" id="momName" placeholder="...">
+        </div>
+        <div class="form-group col-md-4 col-sm-12">
+          <label for="momName">Pekerjaan ibu </label>
+          <input type="text" class="form-control" id="momName" placeholder="...">
+        </div>
+        <div class="form-group col-md-4 col-sm-12">
+          <label for="momName">Alamat ibu</label>
+          <input type="text" class="form-control" id="momName" placeholder="...">
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="pekerjaan">Pekerjaan</label>
+        <select id="pekerjaan" class="form-control">
+          <option value="">- Pilih Pekerjaan</option>
+          <option value="">Programmer</option>
+          <option value="">Web Designer</option>
+          <option value="">Pengusaha</option>
+        </select>
+      </div>
+      
+      <div class="form-group col-md-6">
+        <label for="alamat">Alamat</label>
+        <textarea class="form-control" id="alamat" rows="3" placeholder="..."></textarea>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="alasan">Alasan memilih sekolah</label>
+        <textarea class="form-control" id="alasan" rows="7" placeholder="..."></textarea>
+      </div>
+      
+      <button type="submit" class="btn btn-primary col-md-1">Submit</button>
+    </form>
+  </div>
+  <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+  <script>
+    function validation() {
+		var nama        = document.getElementById("sonName").value;
+		var email       = document.getElementById("email").value;
+		var asalSekolah = document.getElementById("schoolOrigin").value;
+    var Dad         = document.getElementById("dadName").value;
+    var Mom         = document.getElementById("momName").value;
+    var Address     = document.getElementById("alamat").value;
+    var Reason      = document.getElementById("alasan").value;
+		if (nama != "" && email!="" && alamat !="" && asalSekolah!="" && Dad!="" && Mom!="" && Address!="" && Reason!="" ) {
+			return true;
+		}else{
+			alert('Anda harus mengisi data dengan lengkap !');
+		}
+	}
+  </script>
+</body>
+
+</html>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
