@@ -5,19 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Register</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
   </head>
   
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-success">
-      <img class="navbar-brand" src="logo.png" width="350px" height="80px">
+      <img class="navbar-brand" src="css/logo.png" width="350px" height="80px">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
+      </button>
       
       <div class="container">
-      </button>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -77,12 +77,12 @@
           <input type="text" class="form-control" id="dadName" placeholder="...">
         </div>
         <div class="form-group col-md-4 col-sm-12">
-          <label for="dadName">Pekerjaan Ayah</label>
-          <input type="text" class="form-control" id="dadName" placeholder="...">
+          <label for="dadJob">Pekerjaan Ayah</label>
+          <input type="text" class="form-control" id="dadJob" placeholder="...">
         </div>
         <div class="form-group col-md-4 col-sm-12">
-          <label for="dadName">Alamat Ayah</label>
-          <input type="text" class="form-control" id="dadName" placeholder="...">
+          <label for="dadAddress">Alamat Ayah</label>
+          <input type="text" class="form-control" id="dadAddress" placeholder="...">
         </div>
       </div>
 
@@ -92,12 +92,12 @@
           <input type="text" class="form-control" id="momName" placeholder="...">
         </div>
         <div class="form-group col-md-4 col-sm-12">
-          <label for="momName">Pekerjaan ibu </label>
-          <input type="text" class="form-control" id="momName" placeholder="...">
+          <label for="momJob">Pekerjaan ibu </label>
+          <input type="text" class="form-control" id="momJob" placeholder="...">
         </div>
         <div class="form-group col-md-4 col-sm-12">
-          <label for="momName">Alamat ibu</label>
-          <input type="text" class="form-control" id="momName" placeholder="...">
+          <label for="momAddress">Alamat ibu</label>
+          <input type="text" class="form-control" id="momAddress" placeholder="...">
         </div>
       </div>
 
@@ -124,18 +124,19 @@
       <button type="submit" class="btn btn-primary col-md-1">Submit</button>
     </form>
   </div>
-  <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
   <script>
-    function validation() {
+    function validate() {
 		var nama        = document.getElementById("sonName").value;
 		var email       = document.getElementById("email").value;
 		var asalSekolah = document.getElementById("schoolOrigin").value;
-    var Dad         = document.getElementById("dadName").value;
-    var Mom         = document.getElementById("momName").value;
-    var Address     = document.getElementById("alamat").value;
-    var Reason      = document.getElementById("alasan").value;
-		if (nama != "" && email!="" && alamat !="" && asalSekolah!="" && Dad!="" && Mom!="" && Address!="" && Reason!="" ) {
+    var dad         = document.getElementById("dadName").value;
+    var mom         = document.getElementById("momName").value;
+    var address     = document.getElementById("alamat").value;
+    var reason      = document.getElementById("alasan").value;
+    if (nama != "" && email!="" && alamat !="" && asalSekolah!="" && dad!="" 
+    && mom!="" && address!="" && reason!="" ) {
 			return true;
 		}else{
 			alert('Anda harus mengisi data dengan lengkap !');
