@@ -10,172 +10,136 @@
 
        <style>
          body{
-           background-color:dimgray;
+           font-size: 2rem;
          }
-         ul li {
-         cursor: pointer;
-         position: relative;
-         padding: 12px 8px 12px 40px;
-         background: #eee;
-         font-size: 18px;
-        transition: 0.2s;
-        }
-         /* li:hover{
-          background-color: aquamarine;
-           cursor: pointer;
-         } */
-           ul li.checked {
-          background: #888;
-          color: #fff;
-          text-decoration: line-through;
-         }  
-         ul li.checked::before {
-          content: '';
-         position: absolute;
-         border-color: #fff;
-         border-style: solid;
-         border-width: 0 2px 2px 0;
-         top:17px;
-         left: 16px;
-         transform: rotate(45deg);
-          height: 15px;
-          width: 7px; 
-        }   
-        .close {
-       position: absolute;
-       right: 0;
-       top: 0;
-       padding: 12px 16px 12px 16px;
-      }
+       #card{
+         width:50%;
+       }
+       #content{
+         height:auto ;
+       }
+       ul li:nth-child(odd){
+         background-color:powderblue;
+       }
    
+        ul li.checked {
+          color: black;
+          text-decoration: line-through;
+        }
+       li{
+         height:10% ;
+         width: 100%;
+         list-style-type: none;
+       }
+        
+       li:hover{
+         cursor:pointer;
+       }
+        
+       #remove{
+       float: right;
+       }
+         
+       i:hover{
+         color: red;
+         cursor: pointer;
+       }
        </style>
     </head>
+       
+
+
+        
+     
+   
     
     <body>
+          
+           
+              <div class="container-fluid">
 
-        <div class="container bg-dark">
-          
-          <div class="card-header bg-primary">
-            <div id="date" height="200px">
-            </div>
-          </div>
-          
-          
-          <div class="card-body" >
-            <ul id="myUL">
-            </ul>
-          </div>
-            
-          <div class="card-footer">
-            <div class="input-group">
-              <div class="input-group input-group-mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-btn" id="inputGroup-sizing-default">
-                    <button class="btn btn-dark" onclick="newElement()">&#43; </button>
-                  </span>
+                <div id="card"class="container bg-dark">
+                  
+                  <div class="card-header bg-primary">
+                    <div id="date" height="200px">
+                    </div>
+                  </div>
+                  
+                  
+                  <div id="content"  class="card-body bg-light" >
+                    <ul id="list"></ul>
+                  </div>
+                    
+                    
+                  <div class="card-footer">
+                    <div class="input-group">
+                      <div class="input-group input-group-mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-btn" id="inputGroup-sizing-default">
+                            <button class="btn btn-dark">&#43; </button>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" 
+                        aria-describedby="inputGroup-sizing-default"id="input" placeholder="what do you want to do" >
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <input type="text" class="form-control" aria-label="Sizing example input" 
-        aria-describedby="inputGroup-sizing-default"id="myInput" placeholder="what you want to do" >
               </div>
-            </div>
-          </div>
-        </div>
-      
-            
-              
-        <script src="bootstrap/js/jquery.js"></script>
-        <script src="bootstrap/js/bootstrap.js"></script>
-        <script>
-              //show date
-              const dateElement = document.getElementById("date");
-           const options ={weekday : "long",month : "short" , day : "numeric" };
-           const today = new Date();
-          dateElement.innerHTML=today.toLocaleDateString("en-US",options);  
-          
-          
-          var myNodelist = document.getElementsByTagName("LI");
-              var i;
-               for (i = 0; i < myNodelist.length; i++) {
-               var span = document.createElement("SPAN");
-               var txt = document.createTextNode("\u00D7")
-               span.className = "close";
-               span.appendChild(txt);
-               myNodelist[i].appendChild(span);
-             }
-  
-          var close = document.getElementsByClassName("close");
-              var i;
-              for (i = 0; i < close.length; i++) {
-              close[i].onclick = function() {
-              var div = this.parentElement;
-              div.style.display = "none";
-              }
-          }
-          var list = document.querySelector('ul');
+                    
+                    
+                    
+              <script src="bootstrap/js/jquery.js"></script>
+              <script src="bootstrap/js/bootstrap.js"></script>
+              <script>
+                    const dateElement = document.getElementById("date");
+                    const input        =document.getElementById("input");
+                    
+        
+                    
+                  //show date
+                 const options ={weekday : "long",month : "short" , day : "numeric" };
+                 const today = new Date();
+                dateElement.innerHTML=today.toLocaleDateString("en-US",options);  
+                
+               //addToDo
+               function addToDo(toDo){
+                 const item =`<li id="item" class="fa" >
+                                ${toDo}
+                                <i onclick="myFunction()"class="fa fa-trash-o" id="remove" aria-hidden="true"></i>
+                              </li>`;
+                                
+                  const position="beforeend"    ;
+                  list.insertAdjacentHTML(position,item);
+               }
+              //  when user hit enter  
+               document.addEventListener("keyup",function(e){
+                if( e.keyCode === 13 ){
+                  const toDo =input.value;
+                  //check if the input is empty
+                  if(toDo === ""){
+                   alert("you must write something");
+                  }
+                  else{
+                    addToDo(toDo)
+                  }
+                  
+                  input.value="";
+                }
+               });
+               
+               //when done
+               var list = document.querySelector('ul');
               list.addEventListener('click', function(ev) {
-              if (ev.target.tagName === 'LI') {
-              ev.target.classList.toggle('checked');
-              }
-          }, false);
-  
-          function newElement() {
-          var li = document.createElement("li");
-          var inputValue = document.getElementById("myInput").value;
-          var t = document.createTextNode(inputValue);
-          li.appendChild(t);
-          if (inputValue === '') {
-           alert("You must write something!");
-           
-            } else {
-           document.getElementById("myUL").appendChild(li);
-          }
-             document.getElementById("myInput").value = "";
-  
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            li.appendChild(span);
-  
-           for (i = 0; i < close.length; i++) {
-            close[i].onclick = function() {
-             var div = this.parentElement;
-             div.style.display = "none";
-           
-           }
-          }
-        }
-    
-        </script>
-    </body>
-  </html>
+                if (ev.target.tagName === 'LI') {  
+              ev.target.classList.toggle('fa-check');
+            }
+          },false);
+              
+              // remove list
             
-            
-          
-    
-      
-      
-      
-      
-      
-      
-      
-       
-   
-      
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              </script>
+            </body>
+        </html>
+                  
+                
