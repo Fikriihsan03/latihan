@@ -66,6 +66,22 @@
                 </button>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="joke_content" style="min-height: 100px;">
+
+                        </div>
+                        <button id="btngetjoke" class="btn btn-info">
+                            <i class="fa fa-download"></i>
+                            Get Joke</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -82,6 +98,26 @@
             $("#btnsubmit2").click(function (e) {
                 $("#btnsubmit2 i").toggleClass("fa-apple").
                     toggleClass("fa-spinner fa-spin");
+            })
+            $("#btngetjoke").click(function (e) {
+                $("#joke_content").empty();
+
+                $("#btngetjoke i").toggleClass("fa-download").
+                    toggleClass("fa-spinner fa-spin");
+
+                var url = "https://sv443.net/jokeapi/v2/joke/Programming";
+
+                $.get(url, function (joke) {
+                    if (joke.type == "single") {
+                        $("#joke_content").text(joke.joke);
+                    } else {
+                        $ul = $("#joke_content").append("<ul>");
+                        $ul.append($("<li>", { text: joke.setup }))
+                            .append($("<li>", { text: joke.delivery }));
+                    }
+                    $("#btngetjoke i").toggleClass("fa-download").
+                        toggleClass("fa-spinner fa-spin");
+                });
             })
         })
     </script>
