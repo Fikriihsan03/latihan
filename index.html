@@ -59,6 +59,12 @@
                     <i class="fa fa-apple"></i> click Me
                 </button>
             </div>
+            <div class="col-md-4">
+                <button id="btnsubmit2" class="btn btnprimary">
+                    <i class="fa fa-apple"></i>
+                    <i class="fa fa-heart"></i>
+                </button>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -70,6 +76,10 @@
                 $("#btnapple i").toggleClass("fa-heart");
             })
             $("#btnsubmit").click(function (e) {
+                $("i").toggleClass("fa-apple").
+                    toggleClass("fa-spinner fa-spin");
+            })
+            $("#btnsubmit2").click(function (e) {
                 $("i").toggleClass("fa-apple").
                     toggleClass("fa-spinner fa-spin");
             })
