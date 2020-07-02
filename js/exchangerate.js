@@ -13,7 +13,7 @@ class ExchangeRate {
       .then((response) => response.json())
       .then((data) => {
         this.rates = data.rates;
-        this.base = data.base??1;
+        this.base = data.base ?? 1;
         this.lastUpdate = data.date;
 
         let rvalue = {
@@ -37,7 +37,7 @@ class ExchangeRate {
   exchange(from, fromvalue, to) {
     let rateFromValue = this.rates[from];
     let rateToValue = this.rates[to];
-    let rateBase = this.rates[this.base]??1;
+    let rateBase = this.rates[this.base] ?? 1;
     let result = (rateBase / rateFromValue) * rateToValue * fromvalue;
     return result;
   }
