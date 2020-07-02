@@ -4,6 +4,7 @@
 <head>
     <title>Index Belajar</title>
     <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -45,9 +46,35 @@
                 </form>
             </div>
         </nav>
+
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <button id="btnapple" class="btn btnprimary">
+                    <i class="fa fa-apple"></i> click Me
+                </button>
+            </div>
+            <div class="col-md-4">
+                <button id="btnsubmit" class="btn btnprimary">
+                    <i class="fa fa-apple"></i> click Me
+                </button>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnapple").click(function (e) {
+                $("#btnapple i").toggleClass("fa-apple")
+                $("#btnapple i").toggleClass("fa-heart");
+            })
+            $("#btnsubmit").click(function (e) {
+                $("#btnsubmit i").toggleClass("fa-apple").
+                    toggleClass("fa-spinner fa-spin");
+            })
+        })
+    </script>
 </body>
 
 </html>
