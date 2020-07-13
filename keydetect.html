@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>key detect</title>
+</head>
+<body>
+    <h1>key Detect</h1>
+    <input type="text"id="keyDetect"placeholder="press the key">
+    <span id="keycode-display"></span>
+    <script>
+       var input =document.getElementsByTagName("input")[0];
+       
+       
+       input.addEventListener("keypress",function(e){
+        //    console.log(e);
+            document.getElementById("keycode-display").innerHTML=("the keycode is:"+e.keyCode);
+            input.value="";
+        });
+          
+       
+    </script>
+</body>
+</html>
