@@ -6,8 +6,6 @@
        <title>To do list</title>
        <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
        <style>
          body{
            font-size: 2rem;
@@ -16,7 +14,8 @@
          width:50%;
        }
        #content{
-         height:auto ;
+         height:505px;
+         overflow:scroll;
        }
        ul li:nth-child(odd){
          background-color:powderblue;
@@ -46,100 +45,103 @@
        }
        </style>
     </head>
+
+
+       
     <body>
+      <!-- <div class="container-fluid"> -->
+        <!-- <div id="card"class="container bg-dark"> -->
+          <div class="card-header bg-primary">
+            <div id="date" height="200px">
+            </div>
+          </div>
+          <div id="content"  class="card-body bg-light" >
+            <ul id="list">
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="input-group">
+              <div class="input-group input-group-mb-3">
+                <input type="text" class="form-control" aria-label="Sizing example input" 
+                aria-describedby="inputGroup-sizing-default"id="input" placeholder="what do you want to do" >
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+      <!-- </div> -->
+      
+      <script src="bootstrap/js/jquery.js"></script>
+      <script src="bootstrap/js/bootstrap.js"></script>
+      <script>
+            const dateElement =document.getElementById('date');
+            
+            var toDO =document.getElementById("input").value;
+          //show date
+         const options ={weekday : "long",month : "short" , day : "numeric" };
+         const today = new Date();
+        dateElement.innerHTML=today.toLocaleDateString("en-US",options);  
+        
+       $("input").keydown(function(e){
+        if (e.keyCode===13) {
+          if(input.value===""){
+            alert("you must write something")
+          }else{
+           
+            var li =document.createElement("li");
+            var i=document.createElement("i");
+            i.setAttribute("class","fa fa-trash");
+            i.setAttribute("id","remove");
+            li.setAttribute("class","fa ");
+            li.appendChild(document.createTextNode(input.value));
+            li.appendChild(i);
+          
+            $("ul").on("click","#remove",function(e){
+              $(this).parent().fadeOut();
+            })
+            $("ul").append(li);
+          }
+          input.value="";
+        }
+      });
+            
+          
+    $("ul").click(function(e){
+      if(e.target.tagName==="LI"){
+        e.target.classList.toggle('fa-check');
+      }
+      return false
+    }); 
+    </script>
+</body>
+</html>
           
            
-              <div class="container-fluid">
-
-                <div id="card"class="container bg-dark">
-                  
-                  <div class="card-header bg-primary">
-                    <div id="date" height="200px">
-                    </div>
-                  </div>
-                  
-                  
-                  <div id="content"  class="card-body bg-light" >
-                    <ul id="list"></ul>
-                  </div>
-                    
-                    
-                  <div class="card-footer">
-                    <div class="input-group">
-                      <div class="input-group input-group-mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-btn" id="inputGroup-sizing-default">
-                            <button class="btn btn-dark">&#43; </button>
-                          </span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Sizing example input" 
-                        aria-describedby="inputGroup-sizing-default"id="input" placeholder="what do you want to do" >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                    
-                    
-                    
-              <script src="bootstrap/js/jquery.js"></script>
-              <script src="bootstrap/js/bootstrap.js"></script>
-              <script>
-                    const dateElement = document.getElementById("date");
-                    const input        =document.getElementById("input");
-                    
-        
-                    
-                  //show date
-                 const options ={weekday : "long",month : "short" , day : "numeric" };
-                 const today = new Date();
-                dateElement.innerHTML=today.toLocaleDateString("en-US",options);  
-                
-               //addToDo
-               function addToDo(toDo){
-                 const item =`<li id="item" class="fa" >
-                                ${toDo}
-                                <i onclick="myFunction()"class="fa fa-trash-o" id="remove" aria-hidden="true"></i>
-                              </li>`;
-                                
-                  const position="beforeend"    ;
-                  list.insertAdjacentHTML(position,item);
-               }
-              //  when user hit enter  
-               document.addEventListener("keyup",function(e){
-                if( e.keyCode === 13 ){
-                  const toDo =input.value;
-                  //check if the input is empty
-                  if(toDo === ""){
-                   alert("you must write something");
-                  }
-                  else{
-                    addToDo(toDo)
-                  }
-                  
-                  input.value="";
-                }
-               });
-               
-               //when done
-               var list = document.querySelector('ul');
-              list.addEventListener('click', function(ev) {
-                if (ev.target.tagName === 'LI') {  
-              ev.target.classList.toggle('fa-check');
-            }
-          },false);
-              
-              // remove list
-            
-              </script>
-            </body>
-        </html>
-       
 
 
         
      
    
     
+                  
+                  
+                  
+                     
+                      
+                    
+                    
+                       
+                          
+                    
+                    
+                    
+
+
+                     
+                      
+
+              
+
+
+     
                   
                 
