@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>To do list</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-size: 2rem;
+        }
+
+        #card {
+            width: 50%;
+        }
+
+        #content {
+            height: 505px;
+            overflow: scroll;
+        }
+
+        ul li:nth-child(odd) {
+            background-color: powderblue;
+        }
+       li {
+            height: 10%;
+            width: 100%;
+            list-style-type: none;
+        }
+        .removed{
+            text-decoration:line-through;
+        }
+        i:hover {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <!-- <div class="container-fluid"> -->
+    <!-- <div id="card"class="container bg-dark"> -->
+    <div class="card-header bg-primary">
+        <div id="dateeleement">
+        </div>
+    </div>
+    <div id="content" class="card-body bg-light">
+        <ul id="list" class="list-group">
+        </ul>
+    </div>
+    <div class="card-footer">
+        <div class="input-group">
+            <div class="input-group input-group-mb-3">
+                <input type="text" class="form-control"
+                id="input-todo" placeholder="What do you want to do?">
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <!-- </div> -->
+
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script>
+
+        var todoInput = $("#input-todo");
+        //show date
+        const options = { weekday: "long", month: "short", day: "numeric" };
+        const today = new Date();
+        $("#dateeleement").html(today.toLocaleDateString("en-US", options));
+        $("#list").on("click", "i.remove", function (e) {
+            //prevent bubbling
+            e.stopPropagation();
+            $(this).closest("li").remove();
+        })
+        $("#list").on("click", "li", function (e) {
+            $(this).find("i.check").toggleClass("fa-square-o");
+            $(this).find("i.check").toggleClass("fa-check-square-o");
+            $(this).find("span:first").toggleClass("removed")
+        }); 
+        todoInput.keydown(function (e) {
+            if (e.keyCode === 13) {
+                if ($(this).val().trim() === "") {
+                    alert("you must write something")
+                } else {
+                    var li = $("<li>", {
+                        class: "list-group-item d-flex"
+                    });
+                    var icheck = $("<i>", {
+                        class: "fa fa-square-o check p-2"
+                    })
+                    var iremove = $("<i>", {
+                        class: "fa fa-trash-o remove ml-auto p-2"
+                    });
+                    span = $("<span>").addClass("p2").text(todoInput.val());
+                    li.append(icheck);
+                    li.append(span);
+                    li.append(iremove);
+
+                    $("#list").append(li);
+                }
+                $(this).val("");
+            }
+        });
+    </script>
+</body>
+
+</html>
