@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap" rel="stylesheet">
+    <title>Hello</title>
+    <style>
+        body{
+            background: linear-gradient(to bottom, rgb(255,0,38),rgb(255,0,200));
+        }
+        h1{
+            text-align:center;
+            font-family: 'Lemonada', cursive;
+            
+        }
+        .card{
+            margin-left:60px;
+            margin-top:20px;
+        }
+        .btn{
+            background:linear-gradient(#767dd2,#345495);
+            padding:0.125rem 0.75rem;
+        }
+        @media screen and (max-width: 760px){
+            .card{
+            margin-left:3px;
+            margin-top:10px;
+        } 
+        }
+    </style>
+</head>
+<body>
+<h1>Temperature convertion</h1>
+<div class="container">
+
+    <div class="row">
+        <div class="card col-md-5 ">
+            <div class="card-header bg-success">
+                <h3>Celcius ke Fahrenheit</h3>
+            </div>
+            <div class="card-body" height = "400px">
+                <h5>masukkan derajat celcius!</h5>
+                <input id = "celcius-fahrenheit" class = "text-right " type="text" >
+                <button class="btn btn-primary">proses!</button>
+                <div class="alert alert-info">
+                    <p class = "result C-F"></p>
+                </div>
+            </div>
+        </div>    
+
+        <div class="card col-md-5">
+               <div class="card-header bg-success">
+                   <h3>Celcius ke Kelvin</h3>
+               </div>
+               <div class="card-body">
+                   <h5>masukkan derajat celcius!</h5>
+                   <input id = "celcius-kelvin" class = "text-right " type="text" >
+                   <div class="alert alert-info">
+                       <p class= "result C-K"></p>
+                   </div>
+               </div>
+           </div>
+    </div>
+    
+    <div class="row">
+        <div class="card col-md-5">
+            <div class="card-header bg-warning">
+                <h3>Fahrenheit ke Celcius</h3>
+            </div>
+            <div class="card-body" height = "400px">
+                <h5>masukkan derajat Fahrenheit!</h5>
+                <input id =  "fahrenheit-celcius" class = "text-right " type="text" >
+                <div class="alert alert-info">
+                    <p class = "result F-C"></p>
+                </div>
+            </div>
+        </div>    
+        
+        <div class="card col-md-5">
+            <div class="card-header bg-warning">
+                <h3> Fahrenheit ke Kelvin</h3>
+            </div>
+            <div class="card-body">
+                <h5>masukkan derajat Fahrenheit!</h5>
+                <input id =  "fahrenheit-kelvin" class = "text-right " type="text" >
+                <div class="alert alert-info">
+                    <p class = "result F-K"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="card col-md-5">
+            <div class="card-header bg-danger">
+                <h3> Kelvin ke Celcius</h3>
+            </div>
+            <div class="card-body" height = "400px">
+                <h5>masukkan derajat Kelvin!</h5>
+                <input id =  "kelvin-celcius" class = "text-right " type="text" >
+                <div class="alert alert-info">
+                    <p class= "result K-C"></p>
+                </div>
+            </div>
+        </div>    
+        
+        <div class="card col-md-5">
+            <div class="card-header bg-danger">
+                <h3>Kelvin ke Fahrenheit</h3>
+            </div>
+            <div class="card-body">
+                <h5>masukkan derajat Kelvin!</h5>
+                <input id =  "kelvin-fahrenheit" class = "text-right " type="text" >
+                <div class="alert alert-info">
+                    <p class = "result K-F"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+
+            
+<script src="bootstrap/js/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="bootstrap/js/jquery.number.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
