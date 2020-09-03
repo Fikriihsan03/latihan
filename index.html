@@ -2,9 +2,11 @@
 <html>
 
 <head>
-    <title>Index Belajar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Index Belajar</title>
 </head>
 
 <body>
@@ -80,47 +82,40 @@
                 </div>
 
             </div>
+        </div>
 
+        <br>
+
+        <div class="card col-md-5 ">
+            <div class="card-header bg-success">
+                <h3>BMI (Body mass index)</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <input type="text" id="bmi-weight" class="form-control" placeholder="Berat badan saya" aria-label="Nama Email">
+                        <div class="input-group-append">
+                          <span class="input-group-text" id="basic-addon2">kg</span>
+                        </div>
+                      </div>
+                      <div class="input-group mb-3">
+                        <input type="text" id="bmi-height" class="form-control" placeholder="tinggi badan saya" aria-label="Nama Email">
+                        <div class="input-group-append">
+                          <span class="input-group-text" id="basic-addon2">cm</span>
+                        </div>
+                      </div>
+                    <button id="bmi-proccess" class="btn btn-primary">proses!</button>
+                </div>
+                <div class="alert alert-info">
+                    <p class="result"></p>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $("#btnapple").click(function (e) {
-                $("#btnapple i").toggleClass("fa-apple")
-                $("#btnapple i").toggleClass("fa-heart");
-            })
-            $("#btnsubmit").click(function (e) {
-                $("#btnsubmit i").toggleClass("fa-apple").
-                    toggleClass("fa-spinner fa-spin");
-            })
-            $("#btnsubmit2").click(function (e) {
-                $("#btnsubmit2 i").toggleClass("fa-apple").
-                    toggleClass("fa-spinner fa-spin");
-            })
-            $("#btngetjoke").click(function (e) {
-                $("#joke_content").empty();
-
-                $("#btngetjoke i").toggleClass("fa-download").
-                    toggleClass("fa-spinner fa-spin");
-
-                var url = "https://sv443.net/jokeapi/v2/joke/Programming";
-
-                $.get(url, function (joke) {
-                    if (joke.type == "single") {
-                        $("#joke_content").text(joke.joke);
-                    } else {
-                        $ul = $("#joke_content").append("<ul>");
-                        $ul.append($("<li>", { text: joke.setup }))
-                            .append($("<li>", { text: joke.delivery }));
-                    }
-                    $("#btngetjoke i").toggleClass("fa-download").
-                        toggleClass("fa-spinner fa-spin");
-                });
-            })
-        })
-    </script>
+   <script type ="text/javascript" src="js/jquery.number.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
