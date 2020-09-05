@@ -85,7 +85,7 @@
         </div>
 
         <br>
-
+    <div class="row">
         <div class="card col-md-5 ">
             <div class="card-header bg-success">
                 <h3>BMI (Body mass index)</h3>
@@ -95,15 +95,15 @@
                     <div class="input-group mb-3">
                         <input type="text" id="bmi-weight" class="form-control" placeholder="Berat badan saya" aria-label="Nama Email">
                         <div class="input-group-append">
-                          <span class="input-group-text" id="basic-addon2">kg</span>
+                            <span class="input-group-text" id="basic-addon2">kg</span>
                         </div>
-                      </div>
-                      <div class="input-group mb-3">
+                    </div>
+                    <div class="input-group mb-3">
                         <input type="text" id="bmi-height" class="form-control" placeholder="tinggi badan saya" aria-label="Nama Email">
                         <div class="input-group-append">
-                          <span class="input-group-text" id="basic-addon2">cm</span>
+                            <span class="input-group-text" id="basic-addon2">cm</span>
                         </div>
-                      </div>
+                    </div>
                     <button id="bmi-proccess" class="btn btn-primary">proses!</button>
                 </div>
                 <div class="alert alert-info">
@@ -111,10 +111,42 @@
                 </div>
             </div>
         </div>
+        <div class="card col-md-5">
+            <div class="card-header bg-success">
+                <h3>Menemukan berat badan ideal</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <!-- input -->
+                        <input type="text" id="height" class="form-control" placeholder="tinggi badan saya" aria-label="Nama Email">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">cm</span>
+                        </div>
+                    </div>
+                        
+                        <!-- Radio -->
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="laki-laki" value="cowok" name="gender" class="gender custom-control-input">
+                            <label class="custom-control-label" for="laki-laki">laki-laki</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="perempuan" value = "cewek" name="gender" class="gender custom-control-input">
+                            <label class="custom-control-label" for="perempuan">perempuan</label>
+                        </div>
+                    <br>
+                    <button id="proccess" class="btn btn-primary">proses!</button>
+                </div>
+                <div class="alert alert-info">
+                    <p id="weight-result"></p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-   <script type ="text/javascript" src="js/jquery.number.min.js"></script>
+    <script type ="text/javascript" src="js/jquery.number.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 

@@ -40,7 +40,7 @@ function bmiConverter (){
     var tinggi2 = tinggi / 100;//merubah satuan tinggi dari cm ke m
     
     var bmi = berat / Math.pow(tinggi2,2);
-    var bmi2 = bmi.toFixed(2).toLocaleString('ID');//membatasi bilangan dibelakang koma menjadi 2 digit
+    var bmi2 = bmi.toFixed(2);//membatasi bilangan dibelakang koma menjadi 2 digit
     
     if(bmi2 < 18.5){
         kondisi = `berat badan anda adalah ${berat} , dan nilai bmi anda adalah ${bmi2} dan dengan nilai bmi yang tersebut, berat badan anda termasuk dibawah normal`
@@ -59,3 +59,22 @@ function bmiConverter (){
     $("input").val("");
 };
 $("#bmi-proccess").click(bmiConverter);
+
+//--------------------ideal weight----------------------------------
+function idealWeight(){
+    let tinggi = Number($("#height").val());
+    let gender = $('input:radio[name=gender]:checked').val();
+    let rumus  = tinggi - 100
+    let rumusCowok = rumus - (10/100 * rumus);
+    let rumusCewek =rumus - (15/100 * rumus);   
+   // console.log(gender);
+    if(gender == "cowok"){
+       //  alert("ini cowok")
+       rekomendasi = `untuk tinggi badan laki-laki setinggi ${tinggi} cm ,berat badan ideal anda adalah ${rumusCowok}`
+   }else if(gender == "cewek"){
+       // alert("ini cewek")
+       rekomendasi = `untuk tinggi badan perempuan setinggi ${tinggi} cm ,berat badan ideal anda adalah ${rumusCewek}`
+   }
+   $("#weight-result").html(rekomendasi);
+}
+$("#proccess").click(idealWeight);
