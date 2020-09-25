@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+   
+    <title>SignUp</title>
+   
+</head>
+<body>
+    <div class="con-login animate__animated animate__lightSpeedInLeft">
+        
+            <a href="../index.html" class="fa fa-times fa-2x"></a>
+        
+        <h1 class="animate__animated animate__heartBeat animate__repeat-2">Daftar di sini</h1>
+
+        <div class="con-inputs">
+            <form action="" method="get" id="signupform">
+                <div class="con-input">
+                    <label for="email">Email</label>
+                    <input placeholder="example@yourmail.co.id" autocomplete="off" id="email" type="text"name="email">
+                </div>
+            
+                 <div class="con-input">
+                    <label for="password"> Password</label>
+                    <input id="password" type="password" name="password">
+                    <span id="showpass"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                    <div id="password-strength"></div>
+                
+                </div>
+                <div class="con-input">
+                    <label for="password"> Ulangi password</label>
+                    <input id="conf-password" type="password" name="re_password">
+                    
+                </div>
+            </form>
+
+            <div class="button-sign-up">
+                <input type="submit" value="SignUp" class="btn-signup">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+    <script src="app.js"></script>
+
+    
+</body>
+</html>
